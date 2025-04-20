@@ -106,6 +106,20 @@ const DialogDescription = React.forwardRef<
 ))
 DialogDescription.displayName = DialogPrimitive.Description.displayName
 
+// Create a VisuallyHidden component for accessibility
+const VisuallyHidden = ({
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement>) => (
+  <span
+    className="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0"
+    {...props}
+  >
+    {children}
+  </span>
+)
+VisuallyHidden.displayName = "VisuallyHidden"
+
 export {
   Dialog,
   DialogPortal,
@@ -117,4 +131,5 @@ export {
   DialogFooter,
   DialogTitle,
   DialogDescription,
+  VisuallyHidden,
 }
